@@ -11,18 +11,21 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public Product createProduct(Product product){
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
-    public Iterable<Product> getAllProducts(){
+
+    public Iterable<Product> getAllProducts() {
         return productRepository.findAll();
     }
-    public Product updateProduct(Product product, long id){
+
+    public Product updateProduct(Product product, long id) {
         Product product1 = productRepository.findById(id).get();
         product1.setPrice(product.getPrice());
-        return product1;
+        return productRepository.save(product1);
     }
-    public void deleteProduct(long id){
+
+    public void deleteProduct(long id) {
         productRepository.deleteById(id);
     }
 }
