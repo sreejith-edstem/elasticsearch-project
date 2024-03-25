@@ -1,15 +1,15 @@
 package com.elasticsearch.app.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
+@Builder
 @Document(indexName = "products")
 public class Product {
     private long id;

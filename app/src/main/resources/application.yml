@@ -1,0 +1,6 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-names: productService
+      cluster-node: localhost:9200
+

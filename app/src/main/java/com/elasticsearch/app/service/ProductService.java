@@ -21,8 +21,15 @@ public class ProductService {
 
     public Product updateProduct(Product product, long id) {
         Product product1 = productRepository.findById(id).get();
-        product1.setPrice(product.getPrice());
-        return productRepository.save(product1);
+        product1 = Product.builder()
+                .id(product1.getId())
+                .name(product1.getName())
+                .description(product1.getDescription())
+                .quantity(product1.getQuantity())
+                .price(product.getPrice())
+                .build();
+        productRepository.save(product1);
+        return product1;
     }
 
     public void deleteProduct(long id) {
